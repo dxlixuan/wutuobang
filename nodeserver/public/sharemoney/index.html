@@ -5,81 +5,15 @@
 
     <!-- DNS预解析, 请勿删除. 要删除请先联系admin@yeernet.com了解影响! -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="dns-prefetch" href="//api.team.diandianys.com">
-    <link rel="dns-prefetch" href="http://diandianyy.com">
-    <link rel="dns-prefetch" href="http://www.diandianyy.com">
-    <link rel="dns-prefetch" href="http://plat.weixin.hztywl.cn">
-    <link rel="dns-prefetch" href="http://hztywl.com">
-    <link rel="dns-prefetch" href="http://www.hztywl.com">
-    <link rel="dns-prefetch" href="http://www.diandianys.com">
-
-    <link rel="icon" href="http://www.hztywl.cn/img/logonew.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
     <!-- 渲染模式, 请勿删除. 要删除请先联系admin@yeernet.com了解影响! -->
     <meta name="renderer" content="webkit">
-
     <title>点点云管理</title>
     <meta name="description" content="点点云科室后台管理" />
     <meta name="keywords" content="点点|点点云|点点云科室|点点医生|点点医院" />
-    <style>
-      #exitNote{position:absolute;display:none;width:80%;text-align:center;padding:10px;line-height:20px;color:#fff;border:1px solid #fff;border-radius:5px;left:20%;top:75%;margin-left:-50px;z-index:999999;}
-    </style>
-    <!--[if IE 9]><style>.ie9-p4{padding:20px\0/IE9;}.ie9-m2{margin:10px\0/IE9;}</style><![endif]-->
-    <!--[if IE]><style>.login-ui{position: absolute;}</style><![endif]-->
   </head>
   <body style="padding: 0;">
-    <!--[if lt IE 9]>
-      <div style=" text-align:center;">
-        <div style="width: 360px;margin:auto;padding:20px;line-height: 2; background-color: #3cf; color: #fff;">
-          您还在使用十几年前的已淘汰浏览器, 微软已不再提供安全支持, 并且已经无法体验功能强大的现代化应用程序了.
-          点点云建议您更换浏览器或<a href="http://rj.baidu.com/soft/detail/14744.html?ald">立即升级</a>(打开后请点普通下载)
-        </div>
-      </div>
-    <![endif]-->
     <div id="app"></div>
-    <div id="exitNote" class="bg-primary">再按一次退出程序</div>
-    <script>
-
-      function doesDefinePropertyWork(object) {
-        try {
-          Object.defineProperty(object, "sentinel", {})
-          return true
-        } catch (exception) {
-          return false
-        }
-      }
-      doesDefinePropertyWork || (Object.defineProperty = function(){return})
-
-      // 兼容IE9
-      if (!window.console){
-        var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];
-        window.console = {};
-        for (var i = 0; i < names.length; ++i)
-          window.console[names[i]] = function() {}
-      }
-    </script>
     <script src="dist/build.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript">
-      function initExitModule(){
-        window.__appExitReady__ = false
-        document.addEventListener && document.addEventListener('deviceready', onDeviceReady, false)
-        function backmenuEvent(){
-          if (window.__appExitReady__) navigator.app.exitApp()
-          else{
-            window.__appExitReady__ = true
-            document.getElementById('exitNote').style.display = 'block'
-            setTimeout(function(){
-              //2s后自动隐藏提示和重置首次按键
-              window.__appExitReady__ToEnd = false
-              document.getElementById('exitNote').style.display = 'none'
-            }, 2000)
-          }
-        }
-        function onDeviceReady(){ document.addEventListener('backbutton', backmenuEvent, false) }
-      }
-      document && document.addEventListener && initExitModule()
-    </script>
   </body>
 </html>
