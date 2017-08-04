@@ -2,47 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dacde16-db41-40a4-977e-2e8a764bab60" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nodeserver/dao/serve.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nodeserver/public/sharemoney/.gitignore" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/npm-debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/css-min/page-index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/css-min/reset.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/2.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/3.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/banner-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/banner/banner-01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/body-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/break.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/btn/btn01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/btn/btn02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/fb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/icon/pointer-active.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/icon/pointer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/img-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/in.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/input-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/pic/pic1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/pic/pic2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/pic/pic3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/pic/pic_css.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/pic/pic_html.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/pic/pic_javascript.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/rss.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/textarea-bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/tw.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/img/yt.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/index_backup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/register.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/bin/www" afterPath="$PROJECT_DIR$/nodeserver/bin/www" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/routes/routers.js" afterPath="$PROJECT_DIR$/nodeserver/routes/routers.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,7 +16,28 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="www" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nodeserver/bin/www">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nodeserver/routes/routers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="85" column="43" lean-forward="false" selection-start-line="85" selection-start-column="43" selection-end-line="85" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,7 +59,6 @@
       <list>
         <option value="$PROJECT_DIR$/nodeserver/.gitignore" />
         <option value="$PROJECT_DIR$/nodeserver/npm-debug.log" />
-        <option value="$PROJECT_DIR$/nodeserver/bin/www" />
         <option value="$PROJECT_DIR$/nodeserver/routes/routers.js" />
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/.babelrc" />
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/src/main.js" />
@@ -88,6 +68,7 @@
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/src/app.vue" />
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/src/router/router.js" />
         <option value="$PROJECT_DIR$/nodeserver/dao/serve.js" />
+        <option value="$PROJECT_DIR$/nodeserver/bin/www" />
       </list>
     </option>
   </component>
@@ -110,7 +91,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
+    <option name="x" value="-10" />
     <option name="y" value="2" />
     <option name="width" value="1612" />
     <option name="height" value="886" />
@@ -191,10 +172,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sharemoney" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -340,18 +317,18 @@
       <workItem from="1501638052935" duration="7000" />
       <workItem from="1501654058425" duration="7477000" />
       <workItem from="1501721192869" duration="872000" />
-      <workItem from="1501812585009" duration="330000" />
+      <workItem from="1501812585009" duration="1239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36276000" />
+    <option name="totallyTimeSpent" value="37185000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="2" width="1612" height="886" extended-state="1" />
-    <editor active="false" />
+    <frame x="-10" y="2" width="1612" height="886" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24874687" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24874687" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -460,13 +437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="69" lean-forward="true" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nodeserver/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -677,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nodeserver/routes/routers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="85" column="43" lean-forward="false" selection-start-line="85" selection-start-column="43" selection-end-line="85" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nodeserver/public/sharemoney/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -696,6 +659,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodeserver/routes/routers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="85" column="43" lean-forward="false" selection-start-line="85" selection-start-column="43" selection-end-line="85" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodeserver/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
           <folding />
         </state>
       </provider>
