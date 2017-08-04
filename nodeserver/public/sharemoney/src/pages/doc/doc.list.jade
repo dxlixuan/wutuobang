@@ -1,0 +1,109 @@
+.container
+  .panel_center
+    .main
+      .panel_max-width.mx-auto
+        
+        //- 医生列表
+        el-card.box-card(v-if="!isEditorOpen")
+          div(slot="header" class="clearfix")
+            span( style="line-height: 36px;") 医生管理
+            el-select(v-if="userInfo.obj.loginLevel === 'ADMIN'", slot="prepend", v-model="currentGroupId", filterable=true, placeholder="选择集团(支持搜索)", @change="getTeamList()" )
+              el-option(v-for='i in groupList', :label="i.groupName", :value="i.groupId" )
+            el-select( v-model="currentTeamId", filterable=true, placeholder="选择团队(支持搜索)", style="margin-left:10px;", @change="getList" )
+              el-option(v-for='i in teamList', :label="i.teamName", :value="i.teamId" )
+            el-button( v-if="currentTeamId", style="float: right;", type="primary", @click="getDetail()") 添 加
+          div(v-loading.body="ajaxLoading")
+            .py1
+            ul
+              .p2.border.border-primary.primary.bg-primary-light 已启用
+                el-button( style="margin-left: 10px; margin-top: -3px; float:right;", type="primary", size="small", @click="onSaveDocMove(list)") 保存移动
+                span.pl4( v-if="isMovingUnSave", style="float:right;" ) 有医生排序移动未保存
+              li.m1.flex.border.justify-between.hand( v-for="i in list", class="item" )
+                .flex.justify-between.flex1(@click="getDetail(i.userId, i.teamId)")
+                  img.fl.m2.cycle.border.border-box.bg(style="width:40px;height:40px", :src="i.memAvatar+'!110'")
+                  .fl.ie9-p4.justify-around.self-center.flex1 {{ i.memName||i.memNickname||'医生姓名' }}
+                    .gray.small {{ i.memDept||'科室名称' }} {{ i.followerCount ? i.followerCount + '名患者'  : '无患者' }}&nbsp;
+                el-button-group.m3
+                  el-button.absolute( type="primary", size="small", @click="switchDocEnable( i.userId, i.teamId, i.enable )") 停 用
+                  el-button.absolute( type="primary", size="small", @click="onDocMove(i.index,'up')") 上 移
+                  el-button.absolute( type="primary", size="small", @click="onDocMove(i.index,'down')") 下 移
+              .text-center.gray.p4(v-if="list && list.length==0 ") 暂无医生
+            ul
+              .p2.border.border-primary.primary.bg-primary-light 已停用
+              li.m1.flex.border.justify-between.hand( v-for="i in deletedList", class="item")
+                .flex.justify-between.flex1(@click="getDetail(i.userId, i.teamId)")
+                  img.fl.m2.cycle.border.border-box.bg(style="width:40px;height:40px", :src="i.memAvatar+'!110'")
+                  .fl.ie9-p4.justify-around.self-center.flex1 {{ i.memName||i.memNickname||'医生姓名' }}
+                    .gray.small {{ i.memDept||'科室名称' }} {{ i.followerCount ? i.followerCount + '名患者'  : '无患者' }}&nbsp;
+                span.m3( style="margin-right:60px;")
+                  el-button.absolute.cycle( type="primary",size="small", @click="switchDocEnable( i.userId, i.teamId, i.enable )") 启 用
+              .text-center.gray.p4(v-if="deletedList && deletedList.length==0 ") 暂无医生
+            ul
+              .p2.border.border-primary.primary.bg-primary-light 临时医生
+              li.m1.flex.border.justify-between.hand( v-for="i in temporaryList", class="item")
+                .flex.justify-between.flex1(@click="getTempDocDetail(i.id)")
+                  img.fl.m2.cycle.border.border-box.bg(style="width:40px;height:40px", :src="i.memAvatar+'!110'")
+                  .fl.ie9-p4.justify-around.self-center.flex1 {{ i.memName||i.memNickname||'医生姓名' }}
+                    .gray.small {{ i.memDept||'科室名称' }} {{ i.followerCount ? i.followerCount + '名患者'  : '无患者' }}&nbsp;
+                  .self-center.p4.gray >
+              .text-center.gray.p4(v-if="temporaryList && temporaryList.length==0 ") 暂无医生
+
+        //- 医生详情      
+        el-card.box-card(v-if="isEditorOpen")
+          div(slot="header" class="clearfix")
+            span( style="line-height: 36px;") 编辑医生
+            el-button( style="float: right;", @click="switchEditorPanel") 返 回
+            el-button( style="float: right;margin-right:20px;", type="primary", @click="submit(form.teamId)") 确 定
+            //- el-button( style="float: right;margin-right:20px;", type="primary", @click="switchDocEnable") {{form.enable ? '停 用' : '启 用'}}
+          el-form( v-loading.body="ajaxLoading", ref="form", :model="form", label-width="120px" )
+            br
+            el-form( ref="form", :model="form", label-width="120px", style="border: 1px sold #ccc;" )
+              br
+            el-form-item( label="医生姓名" )
+              el-input( v-model="form.memName" )
+            el-form-item( label="所属医院" )
+              el-input( v-model="form.memHos" )
+            el-form-item( label="所属科室" )
+              el-input( v-model="form.memDept" )
+            el-form-item( label="医生职称" )
+              el-select( v-model="form_memTitle", placeholder="职称", style="margin-left:10px;")
+                el-option(v-for='i in docTitle', :label="i", :value="i" )
+            el-form-item( label="医生头像" )
+              el-upload.avatar-uploader( v-bind:action="uploadInfo.host", :data="uploadInfo.basePostData", :show-file-list="false", :on-success="handleAvatarScucess", :before-upload="beforePicUpload")
+                img.avatar(v-if="form_memAvatar && form_memAvatar[0]", :src="form_memAvatar[0].url")
+                i.el-icon-plus.avatar-uploader-icon(v-else)
+            el-form-item( label="性别" )
+              el-radio-group.p2( v-model="form.memSex", on-text="男", off-text="女" )
+                el-radio( :label="'0'" ) 保密
+                el-radio( :label="'1'" ) 男
+                el-radio( :label="'2'" ) 女
+            el-form-item( label="是否名医" )
+              el-switch.p2( v-model="form.isSpecialist", on-text="", off-text="" )
+            el-form-item( label="医生介绍" )
+              el-input( v-model="form.memResume", type="textarea", :autosize="{ minRows: 4, maxRows: 10}" )
+            el-form-item( label="出诊时间" )
+              el-input( v-model="form.memWorktime" )
+            el-form-item( label="二维码",v-if="form.userId||form.id" )
+              el-button( style="margin-left: 10px;border: 1px solid #fff; margin-top: -3px", type="primary", size="small", @click="refreshMemberQrcode()") 刷新二维码
+              img( v-if="form.qrcodeUrl", :src="form.qrcodeUrl && !form.avatarQrcodeUrl" )
+              img( v-if="form.avatarQrcodeUrl", :src="form.avatarQrcodeUrl" )
+            br
+            .p2.border.border-primary.primary.bg-primary-light 设置帐号密码
+            br
+            el-form-item( label="帐号" )
+              el-input( v-model="form.userLoginname" )
+            el-form-item( label="密码" )
+              el-input( v-model="form.userPassword" )
+            el-form-item( label="" )
+              el-button( style="border: 1px solid #fff; margin-top: -3px", type="primary", size="small", @click="onBindAccount()") 保存账户密码
+              .primary &nbsp;&nbsp;&nbsp;( *点击顶部确定按钮不会保存账户密码 )
+            .p2.border.border-primary.primary.bg-primary-light 更换所属团队
+            br
+            el-select( v-model="currentTeamIdForModifyUserTeam", filterable=true, placeholder="选择团队(支持搜索)", @change="" )
+              el-option(v-for='i in teamListForModifyUserTeam', :label="i.teamName", :value="i.teamId" )
+            el-button( type="primary", @click="onModifyUserTeam()") 确 定
+            .primary.small &nbsp;&nbsp;&nbsp;( *点击顶部确定按钮不会保存所属团队修改 )
+            br
+            br
+        Copyright
+  Tabs(currentTab="doc")

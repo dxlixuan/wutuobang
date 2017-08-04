@@ -1,0 +1,135 @@
+.container
+  .panel_center
+    .main
+      .panel_max-width.mx-auto
+        //- 列表页
+        el-card.box-card(v-if="!isEditorOpen")
+          div(slot="header", class="clearfix")
+            span( style="line-height: 36px;") 咨询管理 <br/>
+            //- el-select( v-model="currentTeamId", placeholder="选择团队", style="margin-left:10px;", @change="getList" )
+            //-   el-option(v-for='i in teamList', :label="i.teamName", :value="i.teamId" )
+            //- el-button( style="float: right;", type="primary", @click="getDetail()") 添 加
+            el-select(v-if="userInfo.obj.loginLevel === 'ADMIN'", slot="prepend", v-model="currentGroupId", filterable=true, placeholder="选择集团(支持搜索)", style="width:120px;", @change="getTeamList" )
+              el-option(v-for='i in groupList', :label="i.groupName", :value="i.groupId" )
+            el-select(slot="prepend", v-model="currentTeamId", clearable, filterable=true, placeholder="选择团队(支持搜索)", style="width:120px;", @change="getDocList" )
+              el-option(v-for='i in teamList', :label="i.teamName", :value="i.teamId" )
+            el-select(slot="prepend", v-model="currentDocId", clearable, filterable=true, placeholder="选择医生(支持搜索)", style="width:120px;", @change="" )
+              el-option(v-for='i in docList', :label="i.memName", :value="i.userId" )
+            | &nbsp;
+            el-checkbox( v-model="isGrade") 精选　
+            div( style="display:inline-block;")
+              | 从&nbsp;
+              el-date-picker(v-model="beginTime", type="date", placeholder="开始时间", :picker-options="countTimePickerOptions", style="width:120px;")
+              | &nbsp;到&nbsp;
+              el-date-picker(v-model="endTime", type="date", placeholder="结束时间", :picker-options="countTimePickerOptions", style="width:120px;")
+            el-button( v-loading.body="ajaxProcessing", style="border-color: #fff", type="primary", @click="getList()") 查询
+          ul( v-loading.body="isListLoading||isGettingDetail")
+            li.m1.flex.border.justify-between.hand(v-for="i in list", class="item", @click="getDetail(i.teamConsult.consultId)")
+              //- img.m2.cycle.border.border-box.bg(style="width:40px;height:40px", v-bind:src='i.memAvatar')
+              .justify-around.self-center.flex1
+                .p2.f3.lh15
+                  div
+                    span.keyword.keyword-primary(v-if="i.teamConsult.isGrade") 精选
+                    span.keyword.keyword-green(v-if="i.teamConsult.replyTime >= timeNow - 3600 * 24 * 1000 || (!i.teamConsult.replyTime && (i.teamConsult.createTime >= timeNow - 3600 * 24 * 1000))") 最新
+                    span {{ i.teamConsult.consultContent||'咨询内容' }}
+                    span.primary.small(v-if="i.teamConsult.consultRemark") <br/>备注:{{ i.teamConsult.consultRemark||'备注' }}
+                  .text-right.f4.gray
+                    //- .p 咨询编号: {{ i.teamConsult.consultId }}
+                    div
+                      span(v-if="i.consultTarget")
+                        span 咨询对象:
+                        span
+                          img.cycle.border( :src="i.consultTarget.memAvatar+'!40'", style="margin-bottom: -5px; height: 16px;width:16px;")
+                        span {{i.consultTarget.memName?i.consultTarget.memName:'未知医生'}}
+                      | 　用户:
+                      span
+                        img.cycle.border( :src="i.creator.userAvatar+'!40'", style="margin-bottom: -5px; height: 16px;width:16px;")
+                      span {{ i.creator.userName || '未知用户'}}　{{ i.teamConsult.createTime | goodTime }}发表
+                    .inline-block.py1.ml2
+                      span(v-if="i.teamConsult.replyTime") 最后回复: {{ i.teamConsult.replyTime | goodTime }}&nbsp;
+                      span {{ (i.teamConsult.replyCount||0) + '个回复' }}
+            .text-center.gray.p4(v-if="list && list.length==0 ") 暂无咨询
+            .text-right
+              el-pagination( @current-change="getList", :current-page="paginator.page", :page-size="paginator.limit", layout="total, prev, pager, next", :total="paginator.totalCount")
+
+        //- 详情页
+        el-card.box-card(v-if="isEditorOpen")
+          div(slot="header", class="clearfix")
+            span( style="line-height: 36px;") 咨询详情
+            el-button( style="float: right;", @click="switchEditorPanel({scrollTop: scrollTop})") 返 回
+            el-button( v-if="form && form.teamConsult", style="float: right;margin-right:20px;", type="primary", @click="switchEssence") {{form.teamConsult.isGrade === true ? '取消加精' : '加精'}}
+
+          //-咨询信息
+          .p2.border.border-primary.primary.bg-primary-light 咨询信息
+          .flex.justify-between(class="item", v-if="form.teamConsult")
+            .justify-around.self-center.flex1
+              .px2(v-if="form.consultTarget") 咨询对象:
+                span(v-if="form.consultTarget")
+                  span
+                    img.m2.cycle.border( :src="form.consultTarget.memAvatar+'!40'", style="margin-bottom: -5px; height: 20px;width:20px;")
+                  span {{form.consultTarget.memName?form.consultTarget.memName:''}}&nbsp;
+                    |{{form.consultTarget.memHos?form.consultTarget.memHos:''}}&nbsp;
+                    |{{form.consultTarget.memDept?form.consultTarget.memDept:''}}&nbsp;
+              .px2(v-if="form.creator") 患者信息:
+                span
+                  img.m2.cycle.border( :src="form.creator.userAvatar+'!40'", style="margin-bottom: -5px; height: 20px;width:20px;")
+                span {{ form.creator.userName}} {{form.teamConsult.userAge || "[未知]"}}岁 性别{{["未知","男","女"][form.teamConsult.userSex]}}
+              .p2(v-if="form.teamConsult")
+                .span(v-if="form.teamConsult.consultRemark") 咨询备注: {{ form.teamConsult.consultRemark }}
+                .py2 咨询内容:
+                .p2.f2
+                  .lh15 {{ form.teamConsult.consultContent||'咨询内容' }}
+                .p2(v-if="form.attachmentList", v-for="i in form.attachmentList")
+                  img(v-if="i && i.attaUrl", :src="i.attaUrl", style="max-width:100%")
+                .text-right.p2.f4.gray  {{ form.teamConsult.createTime | goodTime }}　　{{ (form.teamConsult.replyCount||0) + '个回复' }}
+          .text-center.gray.p4( style="line-height:200px;", v-else) 咨询内容加载中...
+
+          //回复信息
+          div(v-if="form.consultTarget")
+            .p2.border.border-primary.primary.bg-primary-light 回复信息
+            ul
+              li.flex.border.justify-between(class="item", v-if="form.replyList" v-for="i in form.replyList")
+                .justify-around.self-center.flex1
+                  .flex(v-if="i.memReplier")
+                    img.m2.cycle.border.border-box.bg(style="width:40px;height:40px", :src="i.memReplier.memAvatar+'!110'")
+                    .p4 {{i.memReplier.memName}}
+                  .flex(v-if="i.usrReplier")
+                    img.m2.cycle.border.border-box.bg(style="width:40px;height:40px", :src="i.usrReplier.userAvatar+'!110'")
+                    .p4 {{i.usrReplier.userName}}
+                  .p2.f2(v-if="i.teamConsultReply && i.teamConsultReply.replyContent") {{i.teamConsultReply.replyContent}}
+                  div(v-if="i.attachmentList && i.attachmentList[0] && i.attachmentList[0].attaUrl")
+                    .p2(v-for="j in i.attachmentList")
+                      img(v-if="j.attaType === 'IMG'", :src="j.attaUrl", style="max-width: 100%;")
+                      audio.border(v-if="j.attaType === 'ADO'", style="display: block !important;height:35px;width:90px;", controls="controls")
+                        source( :src="j.attaUrl", type="audio/ogg")
+                  .text-right.p2.f4.gray {{ i.teamConsultReply.createTime | goodTime }}
+              .p4.gray(v-if="!form.replyList") 暂无回复
+
+            // 新增回复
+            .p2.border.border-primary.primary.bg-primary-light 新增回复
+            br
+            el-form( ref="form", :model="form", label-width="80px" )
+              el-form-item(  label="回复内容" )
+                .px2.primary ( * 回复会以被咨询人的身份发表, 并非登录账户的身份.  允许只添加图片而不填写内容)
+                el-input( v-model="form.replyContent", type="textarea", :autosize="{ minRows: 4, maxRows: 10}" )
+              el-form-item( label="添加图片" )
+                el-upload.avatar-uploader(
+                  v-bind:action="uploadInfo.host", :data="uploadInfo.basePostData", :show-file-list="false", :on-success="handleAvatarScucess", :before-upload="beforePicUpload"
+                )
+                  img.avatar(v-if="form_consultReplyImg && form_consultReplyImg[0]", :src="form_consultReplyImg[0].url")
+                  i.el-icon-plus.avatar-uploader-icon(v-else)
+              el-button( style="float: right;margin-right:20px", type="primary", @click="submit(form.teamId)") 确 定
+            br
+            br
+            br
+            .p2.border.border-primary.primary.bg-primary-light 更新咨询备注
+            br
+            el-form( ref="form", :model="form", label-width="80px" )
+              el-form-item(  label="备注内容" )
+                el-input( v-model="form.teamConsult.consultRemark", type="textarea", :autosize="{ minRows: 4, maxRows: 10}" )
+              el-button( style="float: right;margin-right:20px", type="primary", @click="submitConsulRemark(form.teamId)") 确 定
+            br
+            br
+          .p4.primary(v-else) <br/>*这条咨询没有医生回答! 为鼓励医生自行回答咨询, 我们暂时停用了管理员强制将咨询分配给医生的功能.
+        Copyright
+  Tabs(currentTab="consulting")

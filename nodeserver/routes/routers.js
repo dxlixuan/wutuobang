@@ -83,7 +83,7 @@ routers.get('/',function(req,res, next){
     //    secondP : 'css 是一种非常好的语言',
     //    secondContent: '确实非常好'
     //};
-    res.redirect('/login.html');
+    res.redirect('/sharemoney/index.html');
 });
 
 //login

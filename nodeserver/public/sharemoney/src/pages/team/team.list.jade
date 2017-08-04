@@ -1,0 +1,62 @@
+.container
+  .panel_center
+    .main
+      .panel_max-width.mx-auto
+
+        //- 团队列表
+        el-card.box-card(v-if="!isEditorOpen")
+          div(slot="header", class="clearfix", fixed)
+            span( style="line-height: 36px;") 团队管理
+            el-select( v-if="userInfo.obj.loginLevel === 'ADMIN'", slot="prepend", v-model="currentGroupId", filterable=true, placeholder="选择集团(支持搜索)", @change="getList()" )
+              el-option(v-for='i in groupList', :label="i.groupName", :value="i.groupId" )
+            el-button( style="float: right;", type="primary", @click="getDetail()") 添 加
+          ul(v-loading.body="ajaxLoading")
+            li.m1.flex.border.justify-between.hand.item(v-for="i in list", data-index="i",  @click="getDetail(i.teamId)")
+              img.fl.m2.cycle.border.border-box.bg(style="width:50px;height:50px", :src="i.teamAvatar+'!110'", alt=" ", title=" ")
+              .fl.ie9-p4.justify-around.self-center.flex1 {{i.teamName|| '团队名称'}}
+                .gray.small {{(i.teamHos || '医院名称') + ' ' + (i.teamDept || '科室名称')}}
+              .fr.ie9-m2.self-center.p4
+                i.el-icon-arrow-right.gray
+              .clear
+            .text-center.gray.p4(v-if="list && list.length==0 ") 暂无团队
+
+        //- 团队详情    
+        el-card.box-card(v-if="isEditorOpen")
+          div(slot="header" class="clearfix")
+            span( style="line-height: 36px;") 编辑团队
+            el-button.mr2( style="float: right;", @click="switchEditorPanel") 返 回
+            el-button.mr2( style="float: right;margin-right: 20px;", type="primary", @click="submit(form.teamId)") 确 定
+            el-button.mr2( v-if="form.teamId", style="float: right;margin-right: 20px;", type="primary", @click="refreshTeamQrcode()") 刷新二维码
+          el-form( v-loading.body="ajaxLoading", ref="form", :model="form", label-width="120px" )
+            br
+            el-form-item( label="团队名称" )
+              el-input( v-model="form.teamName" )
+            el-form-item( label="团队简介", v-if="form.teamId" )
+              el-input( v-model="form.teamResume", type="textarea", :autosize="{ minRows: 4, maxRows: 10}" )
+            el-form-item( label="所属医院", v-if="form.teamId" )
+              el-input( v-model="form.teamHos" )
+            el-form-item( label="标准科室", v-if="form.teamId" )
+              el-select( v-model="form.deptName", placeholder="标准科室", style="margin-left:10px;")
+                el-option(v-for='i in GBdept', :label="i", :value="i" )
+            el-form-item( label="所属科室", v-if="form.teamId" )
+              el-input( v-model="form.teamDept" )
+            el-form-item( label="团队电话", v-if="form.teamId" )
+              el-input( v-model="form.teamPhone" )
+            el-form-item( label="团队地址", v-if="form.teamId" )
+              el-input( v-model="form.teamAddress" )
+            el-form-item( label="团队图片", v-if="form.teamId" )
+              el-upload.avatar-uploader( :action="uploadInfo.host", :data="uploadInfo.basePostData", :show-file-list="false", :on-success="upTeamAvatarSuccess", :before-upload="beforePicUpload")
+                img.avatar(v-if="form_teamAvatar && form_teamAvatar[0]", :src="form_teamAvatar[0].url")
+                i.el-icon-plus.avatar-uploader-icon(v-else)
+            el-form-item( label="团队Logo", v-if="form.teamId" )
+              el-upload.avatar-uploader( :action="uploadInfo.host", :data="uploadInfo.basePostData", :show-file-list="false", :on-success="upTeamLogoSuccess", :before-upload="beforePicUpload")
+                img.avatar(v-if="form_teamLogo && form_teamLogo[0]", :src="form_teamLogo[0].url")
+                i.el-icon-plus.avatar-uploader-icon(v-else)
+            el-form-item( label="管理员二维码", v-if="form.ivtLeadQrcodeUrl" )
+              img( :src="form.ivtLeadQrcodeUrl" )
+            el-form-item( label="邀请成员二维码", v-if="form.ivtMemQrcodeUrl" )
+              img( :src="form.ivtMemQrcodeUrl" )
+            el-form-item( v-if="form.ivtLeadQrcodeUrl || form.ivtMemQrcodeUrl", label="")
+              .primary *刷新团队二维码操作会同时刷新 邀请管理员二维码, 邀请成员二维码, 用户关注二维码
+        Copyright
+    Tabs(currentTab="team")
