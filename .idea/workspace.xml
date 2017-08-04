@@ -2,46 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dacde16-db41-40a4-977e-2e8a764bab60" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/login_banner.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/css/index.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/consulting-true.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/consulting.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/doc-true.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/doc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/extra-true.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/extra.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/media-true.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/media.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/schedule-true.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/schedule.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/team-true.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/assets/team.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/article/article.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/comment/comment.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/consulting/consulting.list.jade" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/consulting/consulting.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/doc/doc.list.jade" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/doc/doc.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/evaluate/evaluate.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/feedback/feedback.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/group/group.list.jade" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/group/group.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/media/media.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/message/message.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/relation/relation.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/schedule/schedule.list.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/stat/stat.list.vue" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/.gitignore" afterPath="$PROJECT_DIR$/nodeserver/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/bin/www" afterPath="$PROJECT_DIR$/nodeserver/bin/www" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/dist/build.js" afterPath="$PROJECT_DIR$/nodeserver/public/sharemoney/dist/build.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/index.html" afterPath="$PROJECT_DIR$/nodeserver/public/sharemoney/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/app.vue" afterPath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/app.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/main.js" afterPath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/team/team.list.jade" afterPath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/team/team.list.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/team/team.list.vue" afterPath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/team/team.list.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/router/router.js" afterPath="$PROJECT_DIR$/nodeserver/public/sharemoney/src/router/router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="$PROJECT_DIR$/npm-debug.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,7 +18,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nodeserver/public/sharemoney/src/app.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="529">
@@ -66,6 +28,36 @@
                 <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nodeserver/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nodeserver/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,30 +85,8 @@
       <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nodeserver/public/sharemoney/src/router/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
+            <state relative-caret-position="247">
               <caret line="14" column="50" lean-forward="false" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nodeserver/public/sharemoney/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="61" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nodeserver/public/sharemoney/webpack.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -186,7 +156,6 @@
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/src/component/tabs.vue" />
         <option value="$PROJECT_DIR$/nodeserver/dao/serve.js" />
         <option value="$PROJECT_DIR$/nodeserver/bin/www" />
-        <option value="$PROJECT_DIR$/nodeserver/.gitignore" />
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/src/main.js" />
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/src/router/router.js" />
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/index.html" />
@@ -194,6 +163,7 @@
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/src/pages/team/team.list.vue" />
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/src/css/index.css" />
         <option value="$PROJECT_DIR$/nodeserver/public/sharemoney/src/app.vue" />
+        <option value="$PROJECT_DIR$/nodeserver/.gitignore" />
       </list>
     </option>
   </component>
@@ -262,124 +232,10 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wutuobang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wutuobang" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nodeserver" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wutuobang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wutuobang" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nodeserver" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sharemoney" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wutuobang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wutuobang" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nodeserver" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sharemoney" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wutuobang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wutuobang" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nodeserver" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sharemoney" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wutuobang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wutuobang" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nodeserver" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -512,11 +368,12 @@
       <workItem from="1501817391974" duration="7273000" />
       <workItem from="1501830077046" duration="2686000" />
       <workItem from="1501832839274" duration="949000" />
+      <workItem from="1501836165647" duration="31000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50566000" />
+    <option name="totallyTimeSpent" value="50597000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1597" height="868" extended-state="0" />
@@ -573,13 +430,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/nodeserver/public/sharemoney/yarn.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2964">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nodeserver/public/sharemoney/testmode.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -690,13 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nodeserver/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="8" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nodeserver/bin/www">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -713,13 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nodeserver/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -809,11 +645,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nodeserver/public/sharemoney/src/router/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
+        <state relative-caret-position="247">
           <caret line="14" column="50" lean-forward="false" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -842,6 +676,30 @@
             <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodeserver/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodeserver/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
