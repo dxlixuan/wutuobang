@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="index_warp">
-      <img src="/src/assets/login_banner.jpg" alt="">
+      <img src="./assets/login_banner.jpg" alt="">
       <div>
         <!--登录-->
         <div class="login_warp" v-if="!is_registe">
