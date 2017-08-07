@@ -30,6 +30,3 @@ new users(usr).save(function (err,doc) {
         console.log(doc)
     }
 })
-db.on("close",function () {
-    console.log("close")
-})
