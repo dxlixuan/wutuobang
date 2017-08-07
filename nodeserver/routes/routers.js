@@ -1,5 +1,4 @@
 var routers = require('express').Router();
-var usersDB = require('../dao/users.json');
 var contentDB = require('../dao/model.js');
 var user  = require('../todo/user');
 
@@ -22,24 +21,21 @@ routers.get('/',function(req,res, next){
 });
 
 //login
-routers.post('/login', function(req, res, next) {
+routers.psot('/login', function(req, res, next) {
     var userphone = req.body.userphone;
     var password = req.body.password;
-    var user = user.getbyphone(userphone);   //获取过数据库
-    if( user ){
-        if(password == user.password){
-            //console.log('页面');
-            //res.send('页面');
-            req.userInfo = user;
-            renderUserPage(req, res, next);
+    user.getuser(user).then((data)=>{
+        if(data){
+            if(data.password == password){
+                res.send(backall(data))
+            }else {
+                res.send(backall(null,1,"密码错误"));
+            }
         }else {
-            //console.log('密码错误');
-            res.send('密码错误');
+            res.send(backall(null,1,"用户名不存在"));
         }
-    } else {
-            //console.log('用户名不存在');
-        res.send(null,1,"用户名密码错误");
-    }
+
+    })
 });
 
 //注册

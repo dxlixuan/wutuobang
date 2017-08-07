@@ -8,13 +8,13 @@
           <div class="am-list">
             <div class="am-list-item">
               <div class="am-list-control">
-                <input type="number" class="am-input-required" maxlength="11" name="TPL_username" placeholder="手机号" value="">
+                <input type="number" v-model="phone" class="am-input-required" maxlength="11" name="TPL_username" placeholder="手机号" value="">
               </div>
               <div class="am-list-action" @click.capture="clear_input()"><i class="am-icon-clear"></i></div>
             </div>
             <div class="am-list-item">
               <div class="am-list-control">
-                <input type="password" class="am-input-required am-input-required-password" name="TPL_password" placeholder="请输入密码" value="" >
+                <input type="password" v-model="password" class="am-input-required am-input-required-password" name="TPL_password" placeholder="请输入密码" value="" >
               </div>
               <div class="am-list-action am-list-action-password"><i class="am-icon-clear"></i></div>
               <div class="pwd-show iconfont"></div>
@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="am-field am-fieldBottom">
-            <button type="submit" class="am-button am-button-submit">登 录</button>
+            <button @click="login" type="submit" class="am-button am-button-submit">登 录</button>
           </div>
         </div>
         <!--注册-->
@@ -67,12 +67,14 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 
 export default {
   data () {
     return {
         is_registe : false,
+        phone : "",
+        password : "",
 
     }
   },
@@ -86,7 +88,17 @@ export default {
           this.is_registe = true;
       },
       login() {
-        
+          var self = this;
+          axios.post('/login', {
+              userphone: self.phone,
+              password: self.password
+          })
+              .then(function (response) {
+                  console.log(response);
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
       },
       clear_input (){
 
