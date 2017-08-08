@@ -2,7 +2,8 @@
  * Created by Administrator on 2017/8/7.
  */
 var mongoose = require("mongoose")
-mongoose.connect("mongodb://localhost:10001/wutuobang");
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost:10001/wutuobang",{useMongoClient: true});
 var db = mongoose.connection
 db.on("error",function (err) {
     console.log(err)

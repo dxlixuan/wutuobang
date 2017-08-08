@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="index_warp">
+    <div class="index_warp" v-if="is_login">
       <img src="./assets/login_banner.jpg" alt="">
       <div>
         <!--登录-->
@@ -22,7 +22,7 @@
           </div>
           <div class="other-link">
             <div class="am-field am-footer">
-              <span class="f-left" @click="go_registe">免费注册</span>
+              <span class="f-left" @click="go_registe(false)">免费注册</span>
               <span class="f-right">忘记密码</span>
             </div>
           </div>
@@ -35,27 +35,33 @@
           <div class="am-list">
             <div class="am-list-item">
               <div class="am-list-control">
-                <input type="number" class="am-input-required" maxlength="11" name="TPL_username" placeholder="手机号" value="">
+                <input type="number" v-model="registephone" class="am-input-required" maxlength="11" name="TPL_username" placeholder="手机号" value="">
               </div>
               <div class="am-list-action"><i class="am-icon-clear"></i></div>
             </div>
             <div class="am-list-item">
               <div class="am-list-control">
-                <input type="password" class="am-input-required am-input-required-password" name="TPL_password" placeholder="输入密码" value="" >
+                <input type="password" v-model="registepassword" class="am-input-required am-input-required-password" name="TPL_password" placeholder="输入密码" value="" >
               </div>
               <div class="am-list-action am-list-action-password"><i class="am-icon-clear"></i></div>
               <div class="pwd-show iconfont"></div>
             </div>
             <div class="am-list-item">
               <div class="am-list-control">
-                <input type="password" class="am-input-required am-input-required-password" name="TPL_password" placeholder="确认密码" value="">
+                <input type="password" v-model="isregistepassword" class="am-input-required am-input-required-password" name="TPL_password" placeholder="确认密码" value="">
               </div>
               <div class="am-list-action am-list-action-password"><i class="am-icon-clear"></i></div>
               <div class="pwd-show iconfont"></div>
             </div>
           </div>
+          <div class="other-link">
+            <div class="am-field am-footer">
+              <span class="f-left" @click="go_registe(true)">登录</span>
+              <span class="f-right">忘记密码</span>
+            </div>
+          </div>
           <div class="am-field am-fieldBottom">
-            <button type="submit" class="am-button am-button-submit">登 录</button>
+            <button type="submit" @click="registe" class="am-button am-button-submit">登 录</button>
           </div>
         </div>
       </div>
@@ -68,6 +74,7 @@
 
 <script>
 import axios from 'axios'
+import mint from 'mint-ui';
 
 export default {
   data () {
@@ -75,6 +82,11 @@ export default {
         is_registe : false,
         phone : "",
         password : "",
+        registephone : "",
+        registepassword : "",
+        isregistepassword : "",
+        is_login :true
+
 
     }
   },
@@ -82,26 +94,119 @@ export default {
       var html = document.querySelector("html");
       var width = html.getBoundingClientRect().width;
       html.style.fontSize=width/10+"px";
+      if(localStorage.wutuobang_user){
+          this.is_login = false;
+          return
+      }
   },
   methods:{
-      go_registe(){
-          this.is_registe = true;
+      go_registe(togole_bar){
+          if(togole_bar){
+              this.is_registe = false;
+          }else {
+              this.is_registe = true;
+          }
+
       },
       login() {
           var self = this;
+          if(self.phone.length != 11){
+              mint.Toast({
+                  message: "请输入11位正确手机号",
+                  position: 'bottom',
+                  duration: 3000,
+                  className : "redtoast"
+              });
+              return
+          }
           axios.post('/login', {
               userphone: self.phone,
               password: self.password
           })
               .then(function (response) {
-                  console.log(response);
+                  if(response.status == 200){
+                      localStorage.setItem("wutuobang_user",{phone:response.phone})
+                      mint.Toast({
+                          message: '登录成功',
+                          position: 'bottom',
+                          duration: 3000,
+                          className : "chengtoast"
+                      });
+                      setTimeout(function () {
+                          window.location.reload();
+                      },2000)
+                  }else {
+                      mint.Toast({
+                          message: response.data,
+                          position: 'bottom',
+                          duration: 3000,
+                          className : "redtoast"
+                      });
+                  }
+
               })
               .catch(function (error) {
                   console.log(error);
               });
       },
-      clear_input (){
+      registe (){
+          var self = this;
+          if(self.registephone.length != 11){
+              mint.Toast({
+                  message: "请输入11位正确手机号",
+                  position: 'bottom',
+                  duration: 3000,
+                  className : "redtoast"
+              });
+              return
+          }
+          if(self.registepassword.length < 6 || self.registepassword.length > 12){
+              mint.Toast({
+                  message: "请输入6-12位标准密码",
+                  position: 'bottom',
+                  duration: 3000,
+                  className : "redtoast"
+              });
+              return
+          }
+          if(self.isregistepassword != self.registepassword){
+              mint.Toast({
+                  message: "输入密码不一致",
+                  position: 'bottom',
+                  duration: 3000,
+                  className : "redtoast"
+              });
+              return
+          }
+          axios.post('/register', {
+              registephone: self.registephone,
+              password: self.registepassword
+          })
+              .then(function (response) {
+                  if(response.status == 200){
+                      localStorage.setItem("wutuobang_user",{phone:response.phone})
+                      mint.Toast({
+                          message: '注册成功',
+                          position: 'bottom',
+                          duration: 3000,
+                          className : "chengtoast"
+                      });
+                      setTimeout(function () {
+                          window.location.reload();
+                      },2000)
+                  }else {
+                      mint.Toast({
+                          message: response.data,
+                          position: 'bottom',
+                          duration: 3000,
+                          className : "redtoast"
+                      });
+                  }
 
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
       }
   }
 }
@@ -109,4 +214,13 @@ export default {
 </script>
 <style lang='stylus'>
   @import './css/index.css';
+  .chengtoast{
+    background: #ff5000!important;
+  }
+  .redtoast{
+    background: #ef4f4f!important;
+  }
+  .redtoast span{
+    color: #ffffff;
+  }
 </style>

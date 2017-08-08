@@ -17,4 +17,8 @@ var user = {phone:18613805780}
 function getuser(user) {
     return users.findOne(user)
 }
+function saveuser(user) {
+    return users.create(user)
+}
 exports.getuser = getuser;
+exports.saveuser = saveuser;

@@ -1,94 +1,63 @@
 var routers = require('express').Router();
 var contentDB = require('../dao/model.js');
-var user  = require('../todo/user');
+var UserMdel  = require('../todo/user');
 
 var fs = require('fs');
-function backall(data,status,message) {
-    if(!message){
-        message = "";
-    }
-    if(!data){
-        data = [];
-    }
-    if(!status){
-        status = 0;
-    }
-    return {status:status,data:data,message:message};
-}
+
 //商业逻辑
 routers.get('/',function(req,res, next){
     res.redirect('/sharemoney/index.html');
 });
-
-//login
-routers.psot('/login', function(req, res, next) {
+function login(req, res, next) {
     var userphone = req.body.userphone;
     var password = req.body.password;
-    user.getuser(user).then((data)=>{
+    UserMdel.getuser({phone:userphone}).then((data)=>{
         if(data){
             if(data.password == password){
-                res.send(backall(data))
+                res.send(data)
             }else {
-                res.send(backall(null,1,"密码错误"));
+                res.send(201,"密码错误");
             }
         }else {
-            res.send(backall(null,1,"用户名不存在"));
+            res.send(201,"用户名不存在");
         }
 
     })
+}
+//login
+routers.post('/login', function(req, res, next) {
+    login(req,res,next)
 });
 
 //注册
-routers.get('/register', function(req, res, next){
-    res.redirect('/register.html');// 重定向
-});
 routers.post('/register', function(req, res, next){
-    var userName = req.body.userName;
-    var password = req.body.password;
-    var country = req.body.country;
-
-    //注册的逻辑
-    //先看看数据库有没有这个名字
-    //if（有）{
-    //    返回已经存在
-    //}else{
-    //    注册
-    //    返回页面
-    //}
-    var user = getUser(userName);
-    if(user){
-        res.send('用户已经存在');
-    }else{
-        //注册    写入数据库
-        var userObj = {
-            name : userName,
-            password : password,
-            country  : country
-        };
-        //异步 数据库操作
-        saveUser(userObj, function(err){
-            if(err){
-                res.send(err);
-            }else {
-                //res.send('你的首页');
-                //res.redirect('/login.html');  //注册之后 去登录
-                req.userInfo = userObj;
-                renderUserPage(req, res, next);
-            }
-        });
+    var user = {}
+    user.phone = req.body.registephone;
+    user.password = req.body.password;
+    user.name = user.phone
+    if(!(user.phone && user.phone.length == 11)){
+        res.send(201,"用户名不合法");
+        return
     }
-});
+    UserMdel.getuser({phone:user.phone}).then((data)=>{
+        console.log(data)
+        if(data){
+            res.send(201,"用户名存在");
+        }else {
+            UserMdel.saveuser(user).then((data)=>{
+                if(data){
+                    res.send(200,"注册成功")
+                }else{
+                    res.send(201,"")
+                }
+            })
+        }
 
+    })
+
+});
 
 module.exports = routers;
-
-
-
-//构造函数
-function Yaoguai( name, age ){
-
-}
-var yao = new Yaoguai();
 
 
 
