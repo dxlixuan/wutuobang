@@ -74,7 +74,7 @@
 
 <script>
 import axios from 'axios'
-import mint from 'mint-ui';
+import { Toast } from 'mint-ui';
 
 export default {
   data () {
@@ -85,7 +85,7 @@ export default {
         registephone : "",
         registepassword : "",
         isregistepassword : "",
-        is_login :true
+        is_login :false
 
 
     }
@@ -111,7 +111,7 @@ export default {
       login() {
           var self = this;
           if(self.phone.length != 11){
-              mint.Toast({
+              Toast({
                   message: "请输入11位正确手机号",
                   position: 'bottom',
                   duration: 3000,
@@ -125,8 +125,8 @@ export default {
           })
               .then(function (response) {
                   if(response.status == 200){
-                      localStorage.setItem("wutuobang_user",{phone:response.phone})
-                      mint.Toast({
+                      localStorage.setItem("wutuobang_user",response.phone)
+                      Toast({
                           message: '登录成功',
                           position: 'bottom',
                           duration: 3000,
@@ -136,7 +136,7 @@ export default {
                           window.location.reload();
                       },2000)
                   }else {
-                      mint.Toast({
+                      Toast({
                           message: response.data,
                           position: 'bottom',
                           duration: 3000,
@@ -152,7 +152,7 @@ export default {
       registe (){
           var self = this;
           if(self.registephone.length != 11){
-              mint.Toast({
+              Toast({
                   message: "请输入11位正确手机号",
                   position: 'bottom',
                   duration: 3000,
@@ -161,7 +161,7 @@ export default {
               return
           }
           if(self.registepassword.length < 6 || self.registepassword.length > 12){
-              mint.Toast({
+              Toast({
                   message: "请输入6-12位标准密码",
                   position: 'bottom',
                   duration: 3000,
@@ -170,7 +170,7 @@ export default {
               return
           }
           if(self.isregistepassword != self.registepassword){
-              mint.Toast({
+              Toast({
                   message: "输入密码不一致",
                   position: 'bottom',
                   duration: 3000,
@@ -184,8 +184,8 @@ export default {
           })
               .then(function (response) {
                   if(response.status == 200){
-                      localStorage.setItem("wutuobang_user",{phone:response.phone})
-                      mint.Toast({
+                      localStorage.setItem("wutuobang_user",response.phone)
+                      Toast({
                           message: '注册成功',
                           position: 'bottom',
                           duration: 3000,
@@ -195,7 +195,7 @@ export default {
                           window.location.reload();
                       },2000)
                   }else {
-                      mint.Toast({
+                      Toast({
                           message: response.data,
                           position: 'bottom',
                           duration: 3000,
@@ -214,6 +214,10 @@ export default {
 </script>
 <style lang='stylus'>
   @import './css/index.css';
+  body , html{
+    margin: 0;
+    padding: 0;
+  }
   .chengtoast{
     background: #ff5000!important;
   }
