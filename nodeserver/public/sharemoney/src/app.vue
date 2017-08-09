@@ -66,7 +66,7 @@
         </div>
       </div>
     </div>
-    <router-view>
+    <router-view v-if="!is_login">
 
     </router-view>
   </div>
@@ -85,7 +85,7 @@ export default {
         registephone : "",
         registepassword : "",
         isregistepassword : "",
-        is_login :true
+        is_login :false
 
 
     }
