@@ -4,14 +4,18 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 
-import team from  '../pages/team/team.list.vue'
+import message from  '../pages/message/message.vue'
+import team from  '../pages/team/team.vue'
+import my from  '../pages/my/my.vue'
 
 
 export default new Router({
   // mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
+    { path: '/message'      , component: message       },
     { path: '/team'      , component: team       },
-    { path: '*'          , redirect: '/team'     }
+    { path: '/my'      , component: my       },
+    { path: '*'          , redirect: '/my'     }
   ]
 })

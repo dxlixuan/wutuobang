@@ -85,7 +85,7 @@ export default {
         registephone : "",
         registepassword : "",
         isregistepassword : "",
-        is_login :false
+        is_login :true
 
 
     }
