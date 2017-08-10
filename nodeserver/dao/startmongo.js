@@ -3,7 +3,7 @@
  */
 var mongoose = require("mongoose")
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:11001/wutuobang",{useMongoClient: true});
+mongoose.connect("mongodb://localhost:10001/wutuobang",{useMongoClient: true});
 var db = mongoose.connection
 db.on("error",function (err) {
     console.log(err)
