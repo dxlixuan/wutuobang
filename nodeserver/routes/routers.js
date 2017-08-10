@@ -11,7 +11,19 @@ routers.get('/',function(req,res, next){
 function login(req, res, next) {
     var userphone = req.body.userphone;
     var password = req.body.password;
-    UserMdel.getuser({phone:userphone}).then((data)=>{
+    UserMdel.getuser({phone:userphone}).then(
+        function (data) {
+            if(data){
+                if(data.password == password){
+                    res.send(data)
+                }else {
+                    res.send(201,"密码错误");
+                }
+            }else {
+                res.send(201,"用户名不存在");
+            }
+        }
+   /*     (data)=>{
         if(data){
             if(data.password == password){
                 res.send(data)
@@ -22,7 +34,7 @@ function login(req, res, next) {
             res.send(201,"用户名不存在");
         }
 
-    })
+    }*/)
 }
 //login
 routers.post('/login', function(req, res, next) {
