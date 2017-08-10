@@ -51,7 +51,28 @@ routers.post('/register', function(req, res, next){
         res.send(201,"用户名不合法");
         return
     }
-    UserMdel.getuser({phone:user.phone}).then((data)=>{
+    UserMdel.getuser({phone:user.phone}).then(
+        function (data) {
+            if(data){
+                res.send(201,"用户名存在");
+            }else {
+                UserMdel.saveuser(user).then(
+                    function () {
+                        (data)=>{
+                            if(data){
+                                res.send(200,"注册成功")
+                            }else{
+                                res.send(201,"")
+                            }
+                    }
+
+                })
+            }
+        }
+        
+
+
+        /*(data)=>{
         console.log(data)
         if(data){
             res.send(201,"用户名存在");
@@ -65,7 +86,7 @@ routers.post('/register', function(req, res, next){
             })
         }
 
-    })
+    }*/)
 
 });
 
