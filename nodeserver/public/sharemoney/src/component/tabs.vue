@@ -1,19 +1,19 @@
 <template>
   <mt-tabbar :selected.sync="selected">
     <mt-tab-item id="消息" v-bind:class="{is_this:currentTab == 1}">
-      <div @click="go_go(1)" class="el-icon-message" style="display: block; font-size: .7rem">
+      <div @click="go_go(1)" class="el-icon-message" style="display: block; font-size: .55rem">
 
       </div>
       <span>消息</span>
     </mt-tab-item>
     <mt-tab-item id="宿舍" v-bind:class="{is_this:currentTab == 2}">
-      <div @click="go_go(2)" class="el-icon-menu" style="display: block; font-size: .7rem">
+      <div @click="go_go(2)" class="el-icon-menu" style="display: block; font-size: .55rem">
 
       </div>
       <span>群组</span>
     </mt-tab-item>
     <mt-tab-item id="主页" v-bind:class="{is_this:currentTab == 3}">
-      <div @click="go_go(3)" class="el-icon-setting" style="display: block; font-size: .7rem">
+      <div @click="go_go(3)" class="el-icon-setting" style="display: block; font-size: .55rem">
 
       </div>
       <span>个人</span>
