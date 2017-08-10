@@ -57,19 +57,18 @@ routers.post('/register', function(req, res, next){
                 res.send(201,"用户名存在");
             }else {
                 UserMdel.saveuser(user).then(
-                    function () {
-                        (data)=>{
+                    function (data) {
+
                             if(data){
                                 res.send(200,"注册成功")
                             }else{
                                 res.send(201,"")
                             }
-                    }
 
                 })
             }
         }
-        
+
 
 
         /*(data)=>{
