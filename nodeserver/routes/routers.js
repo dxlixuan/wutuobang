@@ -8,7 +8,7 @@ var fs = require('fs');
 routers.get('/',function(req,res, next){
     res.redirect('/sharemoney/index.html');
 });
-function login(req, res, next) {
+/*function login(req, res, next) {
     var userphone = req.body.userphone;
     var password = req.body.password;
     UserMdel.getuser({phone:userphone}).then((data)=>{
@@ -55,7 +55,7 @@ routers.post('/register', function(req, res, next){
 
     })
 
-});
+});*/
 
 module.exports = routers;
 
