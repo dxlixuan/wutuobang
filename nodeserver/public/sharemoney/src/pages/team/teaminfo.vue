@@ -16,13 +16,15 @@
             </div>
             <div class="teaminfo_btmwarp">
                 <div>
-                    <mt-button size="large">全部出资列表</mt-button>
+                    <mt-button size="small">全部出资列表</mt-button>
+                    <mt-button size="small">近期出资列表</mt-button>
+                    <mt-button size="small">近期结算列表</mt-button>
                 </div>
                 <div>
-                    <mt-button size="large">近期出资列表</mt-button>
+
                 </div>
                 <div>
-                    <mt-button size="large">近期结算列表</mt-button>
+
                 </div>
             </div>
             <div class="teaminfo_sub">
@@ -62,10 +64,10 @@ export default {
 </script>
 <style>
     .teaminfo_info{
-        padding-top: 1rem;
+        padding-top: .2rem;
     }
     .teaminfo_btmwarp{
-        padding: .5rem .25rem;
+        padding:.25rem;
     }
     .teaminfo_btmwarp > div{
         padding: 0.25rem 0;

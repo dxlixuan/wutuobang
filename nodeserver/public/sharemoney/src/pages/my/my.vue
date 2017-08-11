@@ -25,7 +25,7 @@
                         <span style="color: green"></span>
                     </mt-cell>
                 </div>
-                <mt-button @click="logout" size="large" style="background: #ff5000;color: #ffffff;margin-top: 2rem">退出登录</mt-button>
+                <mt-button @click="logout" size="large" style="background: #ff5000;color: #ffffff;margin-top: 1rem">退出登录</mt-button>
             </div>
         </div>
         <tabs currentTab="3"></tabs>
@@ -121,7 +121,7 @@ export default {
         border-radius: 1.5rem;
     }
     .my_btn_list{
-        padding-top: 2rem;
+        padding-top: 1rem;
     }
 
 </style>
