@@ -125,7 +125,7 @@ export default {
           })
               .then(function (response) {
                   if(response.status == 200){
-                      localStorage.setItem("wutuobang_user",response.phone)
+                      localStorage.setItem("wutuobang_user",response.data.phone)
                       Toast({
                           message: '登录成功',
                           position: 'bottom',
@@ -184,7 +184,7 @@ export default {
           })
               .then(function (response) {
                   if(response.status == 200){
-                      localStorage.setItem("wutuobang_user",response.phone)
+                      localStorage.setItem("wutuobang_user",response.data.phone)
                       Toast({
                           message: '注册成功',
                           position: 'bottom',

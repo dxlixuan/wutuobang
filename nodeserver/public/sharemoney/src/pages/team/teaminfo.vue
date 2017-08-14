@@ -16,22 +16,29 @@
             </div>
             <div class="teaminfo_btmwarp">
                 <div>
-                    <mt-button size="small">全部出资列表</mt-button>
-                    <mt-button size="small">近期出资列表</mt-button>
-                    <mt-button size="small">近期结算列表</mt-button>
+                    <mt-button size="small" @click="goto_chuzi('all')">全部出资列表</mt-button>
+                    <mt-button size="small" @click="goto_chuzi('one')">近期出资列表</mt-button>
+                    <mt-button size="small" @click="goto_teamall">近期结算列表</mt-button>
                 </div>
-                <div>
-
-                </div>
-                <div>
-
-                </div>
+                <div></div>
+                <div></div>
             </div>
             <div class="teaminfo_sub">
                 <div v-bind:class="{ teaminfo_sub_is_show: teaminfo_sub_is_show }">
                    <img src="../../assets/pointing-right.png" alt="">
                 </div>
-                <button>+</button>
+                <button @click="chuzi_one">+</button>
+            </div>
+        </div>
+        <div class="chuzisub_warp" v-if="is_sub">
+            <div>
+                <p>出资发布</p>
+                <mt-field label="金额" placeholder="请输入金额" type="number" ></mt-field>
+                <mt-field label="用途" placeholder="请输入用途"></mt-field>
+                <div class="chuzi_btn">
+                    <button @click="chuzi_btn('no')">取消</button>
+                    <button @click="chuzi_btn('ok')">确定</button>
+                </div>
             </div>
         </div>
     </div>
@@ -44,7 +51,8 @@ export default {
     },
     data () {
         return {
-            teaminfo_sub_is_show : true
+            teaminfo_sub_is_show : true,
+            is_sub : false
         }
     },
     mounted (){// TODO: mounted中部分方法需改用Promise
@@ -58,7 +66,22 @@ export default {
     },
 
     methods: {
-
+        goto_chuzi(val){
+            this.$router.push({name:"chuzilist",params: { userId: val }});
+        },
+        goto_teamall(){
+            this.$router.push({name:"teamall",params: {}});
+        },
+        chuzi_one(){
+            this.is_sub = true;
+        },
+        chuzi_btn(val){
+            if(val=="no"){
+                this.is_sub = false;
+            }else {
+                alert("提交")
+            }
+        }
     }
 }
 </script>
@@ -108,5 +131,38 @@ export default {
         border-radius: 1.5rem;
         border: none;
         font-size: 1rem;
+    }
+    .chuzisub_warp{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width:70%;
+        padding: .5rem;
+        border-radius: 5px;
+        background: #ffffff;
+    }
+    .chuzisub_warp p {
+        text-align: center;
+        font-size: .6rem;
+        height:1rem;
+        line-height:1rem;
+        margin: 0;
+        background: #555555;
+        color: #ffffff;
+    }
+    .chuzisub_warp button{
+        width:49%;
+        height:1rem;
+        line-height:1rem;
+        text-align: center;
+        outline: none;
+        border: none;
+        float: left;
+        background: #555555;
+        color: #ffffff;
+    }
+    .chuzisub_warp button:first-of-type{
+        margin-right: 2%;
     }
 </style>
