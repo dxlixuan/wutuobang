@@ -8,20 +8,20 @@
                 </div>
             </div>
             <div class="my_btn_list">
-                <div>
+                <div @click="team_message">
                     <mt-cell title="群消息" is-link>
                         <span style="color: green">
                             <mt-badge size="small" color="#ff5000">10</mt-badge>
                         </span>
                     </mt-cell>
                 </div>
-                <div>
+                <div @click="find_team">
                     <mt-cell title="查找群" is-link>
                         <span style="color: green"></span>
                     </mt-cell>
                 </div>
-                <div>
-                    <mt-cell title="创建群" is-link>
+                <div @click="add_team">
+                    <mt-cell @click="add_team" title="创建群" is-link>
                         <span style="color: green"></span>
                     </mt-cell>
                 </div>
@@ -84,7 +84,21 @@ export default {
                     .catch(function (error) {
                         console.log(error);
                     });*/
+                alert(value)
             });
+        },
+        add_team(){
+            MessageBox.prompt('请输入群名','创建').then(({ value, action }) => {
+                alert(value)
+            });
+        },
+        find_team(){
+            MessageBox.prompt('请输入群名','查找').then(({ value, action }) => {
+                alert(value)
+            });
+        },
+        team_message(){
+                this.$router.push({name:"teammessage"})
         },
         logout(){
             localStorage.removeItem("wutuobang_user");
